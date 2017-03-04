@@ -1,0 +1,11 @@
+{
+    "name": "benrowe/switchmedia-users",
+    "description": "Displays results of user model in tabular format",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ben Rowe",
+            "email": "ben.rowe.83@gmail.com"
+        }
+    ]
+}
