@@ -156,7 +156,7 @@ class Container
         }
         // catch unhandled responses
         if (!($response instanceof ResponseInterface)) {
-            throw new \RuntimeException("Route response is unsupported");
+            // throw new \RuntimeException("Route response is unsupported");
         }
         return $response;
     }
