@@ -13,4 +13,9 @@ try {
 }
 
 $app = new Container(new DiContainer(), realpath(__DIR__));
+
+// load the config
+$app->share('config', function () use ($app) {
+    return new \Config\Repository(new \Config\Loader\FileLoader(\App\path('config')), getenv('APP_ENV'));
+});
 return $app;
