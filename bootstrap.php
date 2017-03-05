@@ -50,9 +50,9 @@ $app->get('capsule');
 
 // handle request/response
 $app->add('request', function () {
-    return Symfony\Component\HttpFoundation\Request::createFromGlobals();
+    return \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 });
 $app->share('response', \Symfony\Component\HttpFoundation\Response::class);
-$app->share('emitter', Zend\Diactoros\Response\SapiEmitter::class);
+$app->share('emitter', \Zend\Diactoros\Response\SapiEmitter::class);
 
 return $app;
