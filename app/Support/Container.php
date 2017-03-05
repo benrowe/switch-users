@@ -20,6 +20,18 @@ class Container
     private static $instance;
 
     /**
+     * @var DiContainer
+     */
+    private $dependency;
+
+    /**
+     * Application path root
+     *
+     * @var string
+     */
+    private $pathRoot;
+
+    /**
      * Application container constructor
      *
      * @param  DiContainer $di
@@ -27,7 +39,7 @@ class Container
      */
     public function __constructor(DiContainer $di, $path)
     {
-        $this->dependecy = $di;
+        $this->dependency = $di;
         $this->pathRoot = rtrim($path, '/') . '/';
 
         self::$instance = $this;
