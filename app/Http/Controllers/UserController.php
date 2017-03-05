@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
+use App\Support\DataGrid;
 use App\Exceptions\HttpException;
 
 class UserController extends AbstractController
@@ -10,6 +11,17 @@ class UserController extends AbstractController
     public function index()
     {
         return $this->view('pages.user-index');
+    }
+
+    public function ajax($request)
+    {
+
+        $params = $request->getQueryParams();
+
+        $datagrid = new Datagrid(User::query(), $params);
+
+        header('content-type: text/json');
+        return json_encode($datagrid->response());
     }
 
     /**
