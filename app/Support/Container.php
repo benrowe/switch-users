@@ -59,4 +59,22 @@ class Container
     {
         return self::$instance;
     }
+
+    /**
+     * Forward any undefined methods to the DI container
+     * This will enable the application instance to register injectable services
+     *
+     * @param  string $method
+     * @param  array $params
+     * @return mixed
+     * @throws InvaldCallException
+     */
+    public function __call($method, $params)
+    {
+        if (!is_callable($this->dependency, $method)) {
+            throw new InvalidCallException(sprintf('"%s()" method does not exist in "%s"', $method, get_class($this)));
+        }
+
+        return call_user_func_array([$this->dependency, $method], $params);
+    }
 }
