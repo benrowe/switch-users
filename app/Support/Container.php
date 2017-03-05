@@ -76,7 +76,7 @@ class Container
      */
     public function __call($method, $params)
     {
-        if (!is_callable($this->dependency, $method)) {
+        if (!method_exists($this->dependency, $method)) {
             throw new InvalidCallException(sprintf('"%s()" method does not exist in "%s"', $method, get_class($this)));
         }
 
