@@ -125,6 +125,8 @@ class Container
     {
         $psr7 = new DiactorosFactory();
         $response = $route->dispatch(
+            // create psr7 compatiable versions of the request/response oci_fetch_object
+            // for the controllers to use
             $psr7->createRequest($this->get('request')),
             $psr7->createResponse($this->get('response'))
         );
@@ -145,7 +147,11 @@ class Container
         // array
         if (is_array($response)) {
             return (new DiactorosFactory)->createResponse(
-                new Response(json_encode($response), 200, ['content-type' => 'application/json'])
+                new Response(
+                    json_encode($response),
+                    200,
+                    ['content-type' => 'application/json']
+                )
             );
         }
         // catch unhandled responses
