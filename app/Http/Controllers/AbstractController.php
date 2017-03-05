@@ -17,7 +17,7 @@ abstract class AbstractController
      * @param  array $params arguments to pass to the view
      * @return string
      */
-    protected function view($response, $path, array $params = [])
+    protected function view($path, array $params = [])
     {
 
         // implement

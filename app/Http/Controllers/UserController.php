@@ -9,7 +9,7 @@ class UserController extends AbstractController
 {
     public function index()
     {
-        return 'INDEX';
+        return $this->view('pages.user-index');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserController extends AbstractController
     {
         $model = $this->getModel($params['id']);
 
-        return $this->view($response, 'pages.user-detail', ['model' => $model]);
+        return $this->view('pages.user-detail', ['model' => $model]);
     }
 
     private function getModel($id)

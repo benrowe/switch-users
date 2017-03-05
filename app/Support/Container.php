@@ -130,7 +130,6 @@ class Container
             $psr7->createRequest($this->get('request')),
             $psr7->createResponse($this->get('response'))
         );
-
         return $this->handleResponseTypes($response);
     }
 
