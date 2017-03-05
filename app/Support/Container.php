@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use League\Container\Container as DiContainer;
+use League\Container\ReflectionContainer;
 
 /**
  * Application Container
@@ -39,6 +40,11 @@ class Container
      */
     public function __constructor(DiContainer $di, $path)
     {
+        // allow dependency injection using class Reflection
+        $di->delegate(
+            new ReflectionContainer
+        );
+
         $this->dependency = $di;
         $this->pathRoot = rtrim($path, '/') . '/';
 
