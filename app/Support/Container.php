@@ -38,7 +38,7 @@ class Container
      * @param  DiContainer $di
      * @param  string $path application base path
      */
-    public function __constructor(DiContainer $di, $path)
+    public function __construct(DiContainer $di, $path)
     {
         // allow dependency injection using class Reflection
         $di->delegate(
