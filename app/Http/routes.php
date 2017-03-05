@@ -7,3 +7,4 @@ use App\Http\Controllers\UserController;
  */
 $route->map('GET', '/', UserController::class.'::index');
 $route->map('GET', '/user/{id}', UserController::class.'::detail');
+$route->map('GET', '/user', UserController::class.'::ajax');
