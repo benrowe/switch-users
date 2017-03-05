@@ -60,6 +60,11 @@ class Container
         return self::$instance;
     }
 
+    public function root()
+    {
+        return $this->pathRoot;
+    }
+
     /**
      * Forward any undefined methods to the DI container
      * This will enable the application instance to register injectable services
