@@ -39,17 +39,17 @@ class Container
     /**
      * Application container constructor
      *
-     * @param  DiContainer $di
+     * @param  DiContainer $diContainer
      * @param  string $path application base path
      */
-    public function __construct(DiContainer $di, $path)
+    public function __construct(DiContainer $diContainer, $path)
     {
         // allow dependency injection using class Reflection
-        $di->delegate(
+        $diContainer->delegate(
             new ReflectionContainer
         );
 
-        $this->dependency = $di;
+        $this->dependency = $diContainer;
         $this->pathRoot = rtrim($path, '/') . '/';
 
         self::$instance = $this;
