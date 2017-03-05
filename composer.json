@@ -13,7 +13,8 @@
         "vlucas/phpdotenv": "^2.4",
         "mrjgreen/config": "^2.0",
         "league/route": "^2.0",
-        "league/container": "^2.3"
+        "league/container": "^2.3",
+        "illuminate/database": "^5.4"
     },
     "autoload": {
         "psr-4": {
