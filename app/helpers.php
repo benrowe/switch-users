@@ -21,6 +21,16 @@ function app()
     return \App\Support\Container::instance();
 }
 
+function config($key = null, $default = null)
+{
+    $cfg = app()->get('config');
+    if (!$key) {
+        return $cfg;
+    }
+
+    return $cfg->get($key, $default);
+}
+
 function path($relativePath = null)
 {
     $path = app()->root();
