@@ -64,6 +64,11 @@ class Container
         return self::$instance;
     }
 
+    /**
+     * Get the root path for the application
+     *
+     * @return string
+     */
     public function root()
     {
         return $this->pathRoot;
@@ -71,6 +76,7 @@ class Container
 
     /**
      * Run the http application
+     *
      * @param  string $routePath location of the routes file
      */
     public function run($routePath)
@@ -99,10 +105,17 @@ class Container
         return call_user_func_array([$this->dependency, $method], $params);
     }
 
+    /**
+     * Load the collection of routes from the specified route file
+     * @param  string          $path absolute path to the routes.php file
+     * @return RouteCollection The route collection, loaded with the contents
+     *                         from the routes file
+     */
     private function getRouteCollection($path): RouteCollection
     {
         $route = new RouteCollection($this->dependency);
 
+        // load in the route file
         require $this->root().$path;
 
         return $route;
